@@ -1,44 +1,168 @@
-<section class="intro">
-  <h1>SecurePass Vault (CLI)</h1>
-  <p>A secure, AES-encrypted password manager you run locally from your terminal. 
-     Your data never leaves your device.</p>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecurePass Vault (CLI)</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --text: #e6edf3;
+      --accent: #58a6ff;
+    }
 
-<section class="download">
-  <h2>➡️ Download the CLI Tool</h2>
-  <p>You can download the full source code and run the application locally from the GitHub repository.</p>
-  <a class="button" href="https://github.com/ShreyaJ-27/Password_Manager" target="_blank">
-    Visit GitHub Repository
-  </a>
-</section>
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
 
-<section class="how-to-run">
-  <h2>🖥️ How to Run</h2>
-  <ol>
-    <li>Download the project ZIP from GitHub or clone it:
-      <pre><code>git clone https://github.com/ShreyaJ-27/Password_Manager.git</code></pre>
-    </li>
-    <li>Open a terminal inside the project folder.</li>
-    <li>Run the app:
-      <pre><code>python main.py</code></pre>
-    </li>
-  </ol>
-  <p>The application runs entirely on your device — no internet or server required.</p>
-</section>
+    header {
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #222;
+      background: var(--card);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-<section class="features">
-  <h2>🔐 Features</h2>
-  <ul>
-    <li>AES-256 encryption for full security</li>
-    <li>Local vault file stored on your device</li>
-    <li>Master password authentication</li>
-    <li>Add, view, search, update, and delete entries</li>
-    <li>Zero-knowledge design — nothing is uploaded anywhere</li>
-  </ul>
-</section>
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: var(--accent);
+    }
 
-<section class="note">
-  <h2>⚠️ Important</h2>
-  <p>If you forget your master password, your vault CANNOT be recovered. 
-     This is by design for maximum security.</p>
-</section>
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    section {
+      margin-bottom: 50px;
+      padding: 25px;
+      background: var(--card);
+      border-radius: 16px;
+      border: 1px solid #222;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-4px);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--accent);
+      font-size: 22px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      margin-top: 10px;
+      background: var(--accent);
+      color: #000;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #7bb8ff;
+    }
+
+    pre {
+      background: #0a0d12;
+      padding: 12px;
+      border-radius: 10px;
+      overflow-x: auto;
+      border: 1px solid #222;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SecurePass Vault (CLI)</h1>
+  </header>
+
+  <div class="container">
+    <section class="fade-in">
+      <h2>🔐 Local Password Manager</h2>
+      <p>A secure, AES-encrypted password manager you run locally from your terminal. Your data never leaves your device.</p>
+    </section>
+
+    <section class="fade-in">
+      <h2>➡️ Download the CLI Tool</h2>
+      <p>Get the full source code and run the application locally from GitHub.</p>
+      <a class="button" href="https://github.com/ShreyaJ-27/Password_Manager" target="_blank">Visit GitHub Repository</a>
+    </section>
+
+    <section class="fade-in">
+      <h2>🖥️ How to Run</h2>
+      <ol>
+        <li>Download or clone the repo:
+          <pre><code>git clone https://github.com/ShreyaJ-27/Password_Manager.git</code></pre>
+        </li>
+        <li>Open terminal inside the folder.</li>
+        <li>Run the CLI:
+          <pre><code>python main.py</code></pre>
+        </li>
+      </ol>
+    </section>
+
+    <section class="fade-in">
+      <h2>✨ Features</h2>
+      <ul>
+        <li>AES-256 secure encryption</li>
+        <li>Local encrypted vault file</li>
+        <li>Master password login</li>
+        <li>Add, search, update, delete entries</li>
+        <li>Zero-knowledge — no cloud storage</li>
+      </ul>
+    </section>
+
+    <section class="fade-in">
+      <h2>⚠️ Important</h2>
+      <p>If you forget your master password, your vault cannot be recovered.</p>
+    </section>
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('.fade-in');
+
+    function reveal() {
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+          sec.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
+  </script>
+</body>
+</html>
